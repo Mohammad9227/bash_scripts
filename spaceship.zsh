@@ -1,16 +1,36 @@
+# Spaceship Prompt Order
 SPACESHIP_PROMPT_ORDER=(
+  time        # Show time at the beginning
   user        # Show username
   host        # Show hostname
   dir         # Show full current directory
   git         # Show Git status
   node        # Show Node.js version
   python      # Show Python version
+  ruby        # Show Ruby version
+  golang      # Show Go version
+  rust        # Show Rust version
   docker      # Show Docker status
+  kubectl     # Show Kubernetes context
   aws         # Show AWS profile
+  terraform   # Show Terraform workspace
+  venv        # Show Python virtual environment
   exec_time   # Show execution time
+  jobs        # Show background jobs
+  battery     # Show battery status (laptop only)
+  exit_code   # Show last command exit code (if nonzero)
   line_sep    # Add a line break
   char        # Show prompt symbol
 )
+
+SPACESHIP_USER_PREFIX=""
+SPACESHIP_HOST_PREFIX=""
+SPACESHIP_DIR_PREFIX=""
+SPACESHIP_GIT_PREFIX=""
+SPACESHIP_NODE_PREFIX=""
+SPACESHIP_PYTHON_PREFIX=""
+SPACESHIP_DOCKER_PREFIX=""
+SPACESHIP_AWS_PREFIX=""
 
 # Directory Settings
 SPACESHIP_DIR_TRUNC=0
