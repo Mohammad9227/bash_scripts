@@ -8,38 +8,13 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Define Spaceship Prompt order
-SPACESHIP_PROMPT_ORDER=(
-  user        # Show username
-  host        # Show hostname
-  dir         # Show full current directory
-  git         # Show Git status
-  node        # Show Node.js version
-  python      # Show Python version
-  docker      # Show Docker status
-  aws         # Show AWS profile
-  exec_time   # Show execution time
-  line_sep    # Add a line break
-  char        # Show prompt symbol
-)
-
-# Show full directory path
-SPACESHIP_DIR_TRUNC=0
-SPACESHIP_DIR_TRUNC_REPO=false
-SPACESHIP_DIR_COLOR="cyan"
-
-# Ensure Git status is shown
-SPACESHIP_GIT_SHOW=true
-SPACESHIP_GIT_BRANCH_COLOR="yellow"
-
-# Customize prompt symbol
-SPACESHIP_CHAR_SYMBOL="❯"
-SPACESHIP_CHAR_COLOR_SUCCESS="green"
-SPACESHIP_CHAR_COLOR_FAILURE="red"
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+
+ZSH_THEME="spaceship"
+
+#ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Enable necessary plugins
 plugins=(
@@ -118,4 +93,24 @@ promptinit
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
-export PATH="/opt/anaconda3/bin:$PATH"
+
+
+# export PATH="/opt/anaconda3/bin:$PATH"  # commented out by conda initialize
+# Load Spaceship configuration from ~/.spaceshiprc
+[[ -f ~/.spaceshiprc ]] && source ~/.spaceshiprc
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<

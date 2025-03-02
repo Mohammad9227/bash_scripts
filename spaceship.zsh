@@ -5,6 +5,7 @@ SPACESHIP_PROMPT_ORDER=(
   host        # Show hostname
   dir         # Show full current directory
   git         # Show Git status
+  conda
   node        # Show Node.js version
   python      # Show Python version
   ruby        # Show Ruby version
@@ -22,6 +23,10 @@ SPACESHIP_PROMPT_ORDER=(
   line_sep    # Add a line break
   char        # Show prompt symbol
 )
+
+SPACESHIP_CONDA_VERBOSE=true
+SPACESHIP_CONDA_SHOW=true
+
 
 SPACESHIP_USER_PREFIX=""
 SPACESHIP_HOST_PREFIX=""
