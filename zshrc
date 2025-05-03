@@ -6,13 +6,14 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:/opt/homebrew/Cellar/postgresql@16/16.6/bin:$PATH
 
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="spaceship"
+#ZSH_THEME="spaceship"
+ZSH_THEME="agnoster"
 
 #ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -114,3 +115,9 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/abdulwmohammed/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
