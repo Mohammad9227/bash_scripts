@@ -1,0 +1,112 @@
+autoload -U colors; colors
+autoload -U compinit && compinit
+#ZSH_THEME="spaceship"
+ZSH_THEME="agonoster"
+echo "sourcing zsh profile"
+autoload -Uz compinit && compinit
+# Custom function to replace `~` with full path
+SPACESHIP_DIR_PATH() {
+  echo -n "${PWD/#$HOME/$HOME}" # Expands `~` to full path
+}
+
+# Customize Spaceship to use full path
+SPACESHIP_DIR_PREFIX="in "
+SPACESHIP_DIR_TRUNC=0
+SPACESHIP_DIR_TRUNC_REPO=false
+SPACESHIP_DIR_HYPERLINK=false
+SPACESHIP_DIR_SHOW=always
+export PATH="/Applications/PyCharm.app/Contents/MacOS:$PATH"
+
+# Manually override the directory display in the prompt
+SPACESHIP_PROMPT_ORDER=(
+  time
+  host
+  python
+  user
+  dir
+  git
+  node
+  docker
+  aws
+  venv
+  exit_code
+  line_sep
+  char
+)
+
+source /opt/homebrew/opt/spaceship/spaceship.zsh
+##########SPACESHIP CONFIGS###########
+
+export PATH="/Applications/Cursor.app/Contents/Resources/app/bin:$PATH"
+
+
+#################################################
+export PGADMIN_INT_PORT=49633
+export PGADMIN_INT_KEY=bf5b39ed-72c3-46db-a73c-355041633c85
+
+#==========ALIASES=============
+alias olm='ollama'
+
+alias kcu='kubectl config use-context'
+alias cdprojdir='cd /Users/abdulmohammed/Documents/Presto-Repos-Local-C02YT135LVDF-MBP-Intel'
+alias mongosh='/Users/abdulmohammed/mongosh-2.2.15-darwin-arm64/bin/mongosh'
+alias ksn='kubectl config set-context --current --namespace'
+alias mps='multipass shell'
+alias mp=multipass
+alias tf=terraform
+alias kb=kubie
+alias k=kubectl
+alias mkrestart='mk stop && mk start'
+alias mk=minikube
+alias kc=kubechc
+alias kn=kubechn
+alias ksc='kubectl config use-context'
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+###########SOURCE COMMANDS############
+source $HOMEBREW_PREFIX/share/zsh-you-should-use/you-should-use.plugin.zsh
+source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/abdulmohammed/.rd/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
+  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+  export PATH=`gem environment gemdir`/bin:$PATH
+fi
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+
+# >>> Added by Spyder >>>
+alias uninstall-spyder=/Users/abdulmohammed/Library/spyder-6/uninstall-spyder.sh
+# <<< Added by Spyder <<<
+export PATH=$PATH:/usr/local/kafka/bin
+source /opt/homebrew/opt/spaceship/spaceship.zsh
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/opt/node@18/bin:$PATH"
+
+# Added by Windsurf
+export PATH="/Users/abdulmohammed/.codeium/windsurf/bin:$PATH"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
